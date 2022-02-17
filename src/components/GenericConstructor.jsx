@@ -1,7 +1,8 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import StudentsTable from "./StudentsTable";
-import AddRemovStudent from "./AddRemovStudent";
+import AddStudent from "./AddStudent";
+import RemoveStudent from "./RemoveStudent";
 import NoMatchesFound from "./NoMatchesFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -15,7 +16,9 @@ function GenericConstructor() {
 
                   <Route index element={<StudentsTable />} />
 
-                  <Route path="student" element={<AddRemovStudent />}/>
+                  <Route path="studentAdd" element={<AddStudent />}/>
+
+                  <Route path="studentDel" element={<RemoveStudent />}/>
 
                   <Route path="*" element={<NoMatchesFound />} />
 

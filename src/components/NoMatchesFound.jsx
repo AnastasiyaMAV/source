@@ -1,9 +1,9 @@
 function NoMatchesFound() {
     return (
         <>
-          <div className="containerEmpty">
-              <h1>!!!!!!!!!!!!!!!!</h1>
-          </div>
+            <div className="containerEmpty">
+                <h1>Такой страницы не существует :( </h1>
+            </div>
         </>
 
     );

@@ -1,0 +1,17 @@
+[
+    { "key": 1, "text": "А", "value": "А" },{ "key": 2, "text": "Б", "value": "Б" }, 
+    { "key": 3, "text": "В", "value": "В" },{ "key": 4, "text": "Г", "value": "Г" },
+    { "key": 5, "text": "Д", "value": "Д" },{ "key": 6, "text": "Е", "value": "Е" },
+    { "key": 7, "text": "Ё", "value": "Ё" },{ "key": 8, "text": "Ж", "value": "Ж" },
+    { "key": 9, "text": "З", "value": "З" },{ "key": 10, "text": "И", "value": "И" },
+    { "key": 11, "text": "Й", "value": "Й" },{ "key": 12, "text": "К", "value": "К" },
+    { "key": 13, "text": "Л", "value": "Л" },{ "key": 14, "text": "М", "value": "М" },
+    { "key": 15, "text": "Н", "value": "Н" },{ "key": 16, "text": "О", "value": "О" },
+    { "key": 17, "text": "П", "value": "П" },{ "key": 18, "text": "Р", "value": "Р" },
+    { "key": 19, "text": "С", "value": "С" },{ "key": 20, "text": "Т", "value": "Т" },
+    { "key": 21, "text": "У", "value": "У" },{ "key": 22, "text": "Ф", "value": "Ф" },
+    { "key": 23, "text": "Х", "value": "Х" },{ "key": 24, "text": "Ц", "value": "Ц" },
+    { "key": 25, "text": "Ч", "value": "Ч" },{ "key": 26, "text": "Ш", "value": "Ш" },
+    { "key": 27, "text": "Щ", "value": "Щ" },{ "key": 28, "text": "Э", "value": "Э" },
+    { "key": 29, "text": "Ю", "value": "Ю" },{ "key": 30, "text": "Я", "value": "Я" }
+]

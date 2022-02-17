@@ -1,11 +1,11 @@
 .containerStudent {
-    margin-top: 50px;
-    margin-left: 50px;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
     min-height: calc(100vh - 70px);
 }
 
 .containerCard {
     display: flex;
     flex-direction: column;
-
 }

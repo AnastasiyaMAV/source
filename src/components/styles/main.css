@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #dddddd;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   height: 50px;
   position: -webkit-sticky;
   position: sticky;
@@ -21,8 +21,9 @@
 }
 
 .containerStudent {
-  margin-top: 50px;
-  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: calc(100vh - 70px);
 }
 
@@ -31,10 +32,18 @@
   flex-direction: column;
 }
 
+.containerRemove {
+  margin-top: 25px;
+}
+
 .footer {
   display: flex;
   justify-content: end;
   background-color: #dddddd;
   color: #141414;
   font-size: 25px;
+}
+
+.containerEmpty {
+  min-height: calc(100vh - 70px);
 }/*# sourceMappingURL=main.css.map */

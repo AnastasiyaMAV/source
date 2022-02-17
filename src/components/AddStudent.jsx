@@ -1,7 +1,7 @@
 import { Card, DatePicker, Space, Input, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 
-function StudentsTable() {
+function AddStudent() {
     const [student, setStudent] = useState({
         key: '',
         name: '',
@@ -20,6 +20,7 @@ function StudentsTable() {
     const [chemistryScore, setChemistryScore] = useState('');
     const [biologyScore, setBiologyScore] = useState('');
     const [storyScore, setStoryScore] = useState('');
+    const [okAdd, setOkAdd] = useState(false);
     
     const fieldСlearing = () => {
         setNameSt('');
@@ -34,13 +35,11 @@ function StudentsTable() {
     const [invisibleAdd, setInvisibleAdd] = useState(true);
     let students = [];
 
-    
-
     useEffect(() => {
-        if(student.name && student.age && student.physics && 
-            student.informatics && student.chemistry && student.biology && student.story){                
+        if(nameSt && birthdaySt && physicsScore && 
+            informaticsScore && chemistryScore && biologyScore && storyScore){                
                 setInvisibleAdd(false);
-                console.log(student);                
+                // console.log(student);                
         } else {
             setInvisibleAdd(true);
         }
@@ -49,40 +48,46 @@ function StudentsTable() {
     const handleChangeNameSt = (e) => {
         setNameSt(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangeBirthdaySt = (e) => {
         setbirthdaySt(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangePhysicsScore = (e) => {
         setPhysicsScore(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangeInformaticsScore = (e) => {
         setInformaticsScore(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangeChemistryScore = (e) => {
         setChemistryScore(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangeBiologyScore = (e) => {
         setBiologyScore(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const handleChangeStoryScore = (e) => {
         setStoryScore(e.target.value);
         setStudent({...student, [e.target.name]: e.target.value});
+        setOkAdd(false);
     }
 
     const addStudent = () => {
-        // console.log('42');
         if (localStorage.getItem('students') != null) {
             students = JSON.parse(localStorage.getItem('students'));
             student.key = students.length + 1;
@@ -90,14 +95,14 @@ function StudentsTable() {
             localStorage.setItem('students', JSON.stringify(students));
             fieldСlearing();
             setInvisibleAdd(true);
-            // console.log('45');
+            setOkAdd(true);
         } else {
             student.key = students.length + 1;
             students.push(student);
             localStorage.setItem('students', JSON.stringify(students));
             fieldСlearing();
             setInvisibleAdd(true);
-            // console.log('49');
+            setOkAdd(true);
         } 
     }
 
@@ -124,8 +129,12 @@ function StudentsTable() {
                         <Input placeholder="История" type='number' onChange={handleChangeStoryScore} name='story' value={storyScore}/>
                     </Card>
                     <Button type="primary" disabled={invisibleAdd} onClick={addStudent}> Добавить </Button>
+                    {
+                        okAdd
+                        ?<div><span>Студент добавлен!</span></div>
+                        : ''
+                    }
                 </div>
-
             </Card>
             </div>
         </>
@@ -133,4 +142,4 @@ function StudentsTable() {
     );
 }
 
-export default StudentsTable;
+export default AddStudent;

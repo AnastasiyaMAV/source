@@ -5,7 +5,8 @@ function Header() {
         <>
             <ul className="header">
                 <NavLink to="/" className="notActivLink" >Таблица студентов</NavLink>
-                <NavLink to="/student" className="notActivLink">Добавление и удаление студента</NavLink>
+                <NavLink to="/studentAdd" className="notActivLink">Добавление студента</NavLink>
+                <NavLink to="/studentDel" className="notActivLink">Удаление студента</NavLink>
             </ul>
             <Outlet />
         </>

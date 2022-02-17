@@ -2,18 +2,7 @@ import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
 
 const originData = require('./assets/JSON/originData.json');
-
-const alphabetData = [
-  { 'text': 'А', 'value': 'А' }, { 'text': 'Б', 'value': 'Б' }, { 'text': 'В', 'value': 'В' },{ 'text': 'Г', 'value': 'Г' },
-  { 'text': 'Д', 'value': 'Д' },{ 'text': 'Е', 'value': 'Е' },{ 'text': 'Ё', 'value': 'Ё' },{ 'text': 'Ж', 'value': 'Ж' },
-  { 'text': 'З', 'value': 'З' }, { 'text': 'И', 'value': 'И' }, { 'text': 'Й', 'value': 'Й' },{ 'text': 'К', 'value': 'К' },
-  { 'text': 'Л', 'value': 'Л' },{ 'text': 'М', 'value': 'М' },{ 'text': 'Н', 'value': 'Н' },{ 'text': 'О', 'value': 'О' },
-  { 'text': 'А', 'value': 'А' }, { 'text': 'Б', 'value': 'Б' }, { 'text': 'В', 'value': 'В' },{ 'text': 'Г', 'value': 'Г' },
-  { 'text': 'П', 'value': 'П' },{ 'text': 'Р', 'value': 'Р' },{ 'text': 'С', 'value': 'С' },{ 'text': 'Т', 'value': 'Т' },
-  { 'text': 'У', 'value': 'У' },{ 'text': 'Ф', 'value': 'Ф' },{ 'text': 'Х', 'value': 'Х' },{ 'text': 'Ц', 'value': 'Ц' },
-  { 'text': 'Ч', 'value': 'Ч' },{ 'text': 'Ш', 'value': 'Ш' },{ 'text': 'Щ', 'value': 'Щ' },{ 'text': 'Э', 'value': 'Э' },
-  { 'text': 'Ю', 'value': 'Ю' },{ 'text': 'Я', 'value': 'Я' }
-]
+const alphabetData = require('./assets/JSON/alphabetData.json');
 
 const EditableCell = ({
   editing,
@@ -52,7 +41,7 @@ const EditableCell = ({
 
 const StudentsTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('students')) ? JSON.parse(localStorage.getItem('students')) : originData);
   const [editingKey, setEditingKey] = useState('');
 
   const isEditing = (record) => record.key === editingKey;
