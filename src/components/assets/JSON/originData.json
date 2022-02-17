@@ -1,18 +1,38 @@
 [
-    {"key":"21", "name":"Иванов Иван Иванович", "age":"10.03.1988", 
+    {"key":"1", "name":"Синицин Иван Иванович", "age":"1988.03.10", 
     "physics":"5", "informatics":"5", 
     "chemistry":"4", "biology":"4", "story":"5"
     },
     
-    {"key":"112", "name":"Петрова Анастасия Валентиновна", "age":"21.01.1987", 
+    {"key":"2", "name":"Лебедева Анастасия Валентиновна", "age":"1987.01.21", 
     "physics":"4", "informatics":"4", 
     "chemistry":"4", "biology":"4", "story":"4"},
     
-    {"key":"424", "name":"Петров Валерий Александрович", "age":"01.01.1989", 
+    {"key":"3", "name":"Аист Валерий Александрович", "age":"1989.01.01", 
     "physics":"4", "informatics":"4", 
     "chemistry":"4", "biology":"4", "story":"4"},
     
-    {"key":"1454", "name":"Васильев Сергей Сергеевич", "age":"11.08.1988", 
+    {"key":"5", "name":"Ласточкин Сергей Сергеевич", "age":"1988.11.08", 
     "physics":"4", "informatics":"3", 
-    "chemistry":"5", "biology":"4", "story":"3"}
+    "chemistry":"5", "biology":"4", "story":"3"},
+    
+    {"key":"6", "name":"Гусева Валерия Александровна", "age":"1988.06.17", 
+    "physics":"4", "informatics":"5", 
+    "chemistry":"5", "biology":"4", "story":"5"},
+    
+    {"key":"7", "name":"Воробьева Юлия Дмитриевна", "age":"1989.05.05", 
+    "physics":"5", "informatics":"4", 
+    "chemistry":"5", "biology":"4", "story":"5"},
+    
+    {"key":"8", "name":"Дроздов Павел Сергеевич", "age":"1987.04.16", 
+    "physics":"5", "informatics":"4", 
+    "chemistry":"5", "biology":"4", "story":"3"},
+    
+    {"key":"9", "name":"Орлова Кристина Владимировна", "age":"1987.12.31", 
+    "physics":"4", "informatics":"5", 
+    "chemistry":"5", "biology":"4", "story":"3"},
+    
+    {"key":"10", "name":"Коршун Яна Ильинична", "age":"1988.07.24", 
+    "physics":"4", "informatics":"5", 
+    "chemistry":"5", "biology":"5", "story":"5"}
 ]

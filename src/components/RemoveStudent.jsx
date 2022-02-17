@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table, Popconfirm } from 'antd';
+
 const originData = require('./assets/JSON/originData.json');
+const alphabetData = require('./assets/JSON/alphabetData.json');
 
 class RemoveStudent extends React.Component {
   
@@ -11,13 +13,16 @@ class RemoveStudent extends React.Component {
         title: 'ФИО',
         dataIndex: 'name',
         width: '25%',
+        filters: alphabetData,
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        sorter: (a, b) => a.name.localeCompare(b.name),
       },
       {
         title: 'Дата Рождения',
         dataIndex: 'age',
         width: '10%',
         sorter: {
-          compare: (a, b) => a.age - b.age,
+          compare: (a, b) => new Date(a.age) - new Date(b.age),
           multiple: '',
         },
       },

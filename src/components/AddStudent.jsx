@@ -1,4 +1,4 @@
-import { Card, DatePicker, Space, Input, Button } from 'antd';
+import { Card, Space, Input, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 
 function AddStudent() {
@@ -115,7 +115,7 @@ function AddStudent() {
     const addStudent = () => {
         if (localStorage.getItem('students') != null) {
             students = JSON.parse(localStorage.getItem('students'));
-            student.key = students.length + 1;
+            student.key = (students.length + 1).toString();
             students.push(student);
             localStorage.setItem('students', JSON.stringify(students));
             fieldСlearing();
@@ -142,8 +142,7 @@ function AddStudent() {
                     </div>
                     <Space direction="vertical">
                         <div>Введите дату рождения</div>
-                        {/* <DatePicker onChange={onChange} /> */}
-                        <Input placeholder="Формат 12.12.1912" onChange={handleChangeBirthdaySt} name='age' value={birthdaySt}/>
+                        <Input placeholder="Формат ГГГГ.ММ.ДД" onChange={handleChangeBirthdaySt} name='age' value={birthdaySt}/>
                     </Space>
                     <Card>
                         <p>Введите оценки за предметы</p>
