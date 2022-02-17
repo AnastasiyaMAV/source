@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #dddddd;
+  text-align: center;
+  font-size: 25px;
+  height: 50px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.notActivLink {
+  color: #141414;
+}
+
+.containerTable {
+  min-height: calc(100vh - 70px);
+}
+
+.containerStudent {
+  margin-top: 50px;
+  margin-left: 50px;
+  min-height: calc(100vh - 70px);
+}
+
+.containerCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+  background-color: #dddddd;
+  color: #141414;
+  font-size: 25px;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,18 @@
+[
+    {"key":"21", "name":"Иванов Иван Иванович", "age":"10.03.1988", 
+    "physics":"5", "informatics":"5", 
+    "chemistry":"4", "biology":"4", "story":"5"
+    },
+    
+    {"key":"112", "name":"Петрова Анастасия Валентиновна", "age":"21.01.1987", 
+    "physics":"4", "informatics":"4", 
+    "chemistry":"4", "biology":"4", "story":"4"},
+    
+    {"key":"424", "name":"Петров Анастасия Валентиновна", "age":"21.01.1987", 
+    "physics":"4", "informatics":"4", 
+    "chemistry":"4", "biology":"4", "story":"4"},
+    
+    {"key":"1454", "name":"Васильев Сергей Сергеевич", "age":"11.08.1988", 
+    "physics":"4", "informatics":"3", 
+    "chemistry":"5", "biology":"4", "story":"3"}
+]
