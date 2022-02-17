@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
 
 const originData = require('./assets/JSON/originData.json');
@@ -26,7 +26,7 @@ const EditableCell = ({
           rules={[
             {
               required: true,
-              message: `Please Input ${title}!`,
+              message: `Поле ${title} не должно быть пустым !`,
             },
           ]}
         >
@@ -41,7 +41,9 @@ const EditableCell = ({
 
 const StudentsTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(JSON.parse(localStorage.getItem('students')) ? JSON.parse(localStorage.getItem('students')) : originData);
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('students')) 
+    ? JSON.parse(localStorage.getItem('students')) 
+    : localStorage.setItem('students', JSON.stringify(originData)));
   const [editingKey, setEditingKey] = useState('');
 
   const isEditing = (record) => record.key === editingKey;
@@ -63,6 +65,10 @@ const StudentsTable = () => {
   const cancel = () => {
     setEditingKey('');
   };
+
+  useEffect(()=>{
+    localStorage.setItem('students', JSON.stringify(data))
+  },[data])
 
   const save = async (key) => {
     try {
@@ -193,7 +199,7 @@ const StudentsTable = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'age' ? 'number' : 'text',
+        inputType: col.dataIndex === 'name' ? 'text' : 'number',
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),

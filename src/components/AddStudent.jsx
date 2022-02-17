@@ -58,33 +58,58 @@ function AddStudent() {
     }
 
     const handleChangePhysicsScore = (e) => {
-        setPhysicsScore(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value > 5 || e.target.value < 2){
+            alert('Значение не может быть больше 5 и меньше 2');
+            setPhysicsScore('');
+        }else{
+            setPhysicsScore(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+        }
     }
 
     const handleChangeInformaticsScore = (e) => {
-        setInformaticsScore(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value > 5 || e.target.value < 2){
+            alert('Значение не может быть больше 5 и меньше 2');
+            setInformaticsScore('');
+        }else{
+            setInformaticsScore(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+        }
     }
 
     const handleChangeChemistryScore = (e) => {
-        setChemistryScore(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value > 5 || e.target.value < 2){
+            alert('Значение не может быть больше 5 и меньше 2');
+            setChemistryScore('');
+        }else{
+            setChemistryScore(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+        }
     }
 
     const handleChangeBiologyScore = (e) => {
-        setBiologyScore(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value > 5 || e.target.value < 2){
+            alert('Значение не может быть больше 5 и меньше 2');
+            setBiologyScore('');
+        }else{
+            setBiologyScore(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+        }
     }
 
     const handleChangeStoryScore = (e) => {
-        setStoryScore(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value > 5 || e.target.value < 2){
+            alert('Значение не может быть больше 5 и меньше 2');
+            setStoryScore('');
+        }else{
+            setStoryScore(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+        }
     }
 
     const addStudent = () => {

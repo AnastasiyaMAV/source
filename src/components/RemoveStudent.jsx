@@ -80,8 +80,14 @@ class RemoveStudent extends React.Component {
 
     this.state = {
       dataSource: 
-      JSON.parse(localStorage.getItem('students')) ? JSON.parse(localStorage.getItem('students')) : originData,
+      JSON.parse(localStorage.getItem('students')) 
+        ? JSON.parse(localStorage.getItem('students')) 
+        : localStorage.setItem('students', JSON.stringify(originData)),
     };
+  }
+
+  componentDidUpdate(){
+    localStorage.setItem('students', JSON.stringify(this.state.dataSource))
   }
 
   handleDelete = (key) => {
@@ -90,7 +96,6 @@ class RemoveStudent extends React.Component {
       dataSource: dataSource.filter((item) => item.key !== key),
     });
   };
-
 
   render() {
     const { dataSource } = this.state;
