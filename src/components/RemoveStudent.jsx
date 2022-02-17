@@ -3,6 +3,7 @@ import { Table, Popconfirm } from 'antd';
 
 const originData = require('./assets/JSON/originData.json');
 const alphabetData = require('./assets/JSON/alphabetData.json');
+const scoreData = require('./assets/JSON/scoreData.json');
 
 class RemoveStudent extends React.Component {
   
@@ -16,8 +17,7 @@ class RemoveStudent extends React.Component {
         filters: alphabetData,
         onFilter: (value, record) => record.name.indexOf(value) === 0,
         sorter: (a, b) => a.name.localeCompare(b.name),
-      },
-      {
+      },{
         title: 'Дата Рождения',
         dataIndex: 'age',
         width: '10%',
@@ -25,53 +25,42 @@ class RemoveStudent extends React.Component {
           compare: (a, b) => new Date(a.age) - new Date(b.age),
           multiple: '',
         },
-      },
-      {
+      },{
         title: 'Физика',
         dataIndex: 'physics',
         width: '10%',
-        sorter: {
-          compare: (a, b) => a.physics - b.physics,
-          multiple: '',
-        },
-      },
-      {
+        filters: scoreData,
+        onFilter: (value, record) => record.physics.indexOf(value) === 0,
+        sorter: (a, b) => a.physics - b.physics,
+      },{
         title: 'Информатика',
         dataIndex: 'informatics',
         width: '10%',
-        sorter: {
-          compare: (a, b) => a.informatics - b.informatics,
-          multiple: '',
-        },
-      },
-      {
+        filters: scoreData,
+        onFilter: (value, record) => record.informatics.indexOf(value) === 0,
+        sorter: (a, b) => a.informatics - b.informatics,
+      },{
         title: 'Химия',
         dataIndex: 'chemistry',
         width: '10%',
-        sorter: {
-          compare: (a, b) => a.chemistry - b.chemistry,
-          multiple: '',
-        },
-      },
-      {
+        filters: scoreData,
+        onFilter: (value, record) => record.chemistry.indexOf(value) === 0,
+        sorter: (a, b) => a.chemistry - b.chemistry,
+      },{
         title: 'Биология',
         dataIndex: 'biology',
         width: '10%',
-        sorter: {
-          compare: (a, b) => a.biology - b.biology,
-          multiple: '',
-        },
-      },
-      {
+        filters: scoreData,
+        onFilter: (value, record) => record.biology.indexOf(value) === 0,
+        sorter: (a, b) => a.biology - b.biology,
+      },{
         title: 'История',
         dataIndex: 'story',
         width: '10%',
-        sorter: {
-          compare: (a, b) => a.story - b.story,
-          multiple: '',
-        },
-      },
-      {
+        filters: scoreData,
+        onFilter: (value, record) => record.story.indexOf(value) === 0,
+        sorter: (a, b) => a.story - b.story,
+      },{
         title: '',
         dataIndex: 'operation',
         render: (_, record) =>
