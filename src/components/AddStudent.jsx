@@ -1,4 +1,4 @@
-import { Card, Space, Input, Button } from 'antd';
+import { Card, Space, Input, Button, Radio } from 'antd';
 import React, { useState, useEffect } from 'react';
 
 function AddStudent() {
@@ -15,35 +15,24 @@ function AddStudent() {
 
     const [nameSt, setNameSt] = useState('');
     const [birthdaySt, setbirthdaySt] = useState('');
-    const [physicsScore, setPhysicsScore] = useState('');
-    const [informaticsScore, setInformaticsScore] = useState('');
-    const [chemistryScore, setChemistryScore] = useState('');
-    const [biologyScore, setBiologyScore] = useState('');
-    const [storyScore, setStoryScore] = useState('');
     const [okAdd, setOkAdd] = useState(false);
     
     const fieldСlearing = () => {
         setNameSt('');
         setbirthdaySt('');
-        setPhysicsScore('');
-        setInformaticsScore('');
-        setChemistryScore('');
-        setBiologyScore('');
-        setStoryScore('');
     };
 
     const [invisibleAdd, setInvisibleAdd] = useState(true);
     let students = [];
 
     useEffect(() => {
-        if(nameSt && birthdaySt && physicsScore && 
-            informaticsScore && chemistryScore && biologyScore && storyScore){                
-                setInvisibleAdd(false);
-                // console.log(student);                
+        if(nameSt && birthdaySt && student.physics && student.informatics && 
+            student.chemistry && student.biology && student.story){                
+                setInvisibleAdd(false);             
         } else {
             setInvisibleAdd(true);
         }
-    }, [student]);
+    }, [student, nameSt, birthdaySt]);
 
     const handleChangeNameSt = (e) => {
         setNameSt(e.target.value);
@@ -57,72 +46,22 @@ function AddStudent() {
         setOkAdd(false);
     }
 
-    const handleChangePhysicsScore = (e) => {
-        if(e.target.value > 5 || e.target.value < 2){
-            alert('Значение не может быть больше 5 и меньше 2');
-            setPhysicsScore('');
-        }else{
-            setPhysicsScore(e.target.value);
-            setStudent({...student, [e.target.name]: e.target.value});
-            setOkAdd(false);
-        }
-    }
-
-    const handleChangeInformaticsScore = (e) => {
-        if(e.target.value > 5 || e.target.value < 2){
-            alert('Значение не может быть больше 5 и меньше 2');
-            setInformaticsScore('');
-        }else{
-            setInformaticsScore(e.target.value);
-            setStudent({...student, [e.target.name]: e.target.value});
-            setOkAdd(false);
-        }
-    }
-
-    const handleChangeChemistryScore = (e) => {
-        if(e.target.value > 5 || e.target.value < 2){
-            alert('Значение не может быть больше 5 и меньше 2');
-            setChemistryScore('');
-        }else{
-            setChemistryScore(e.target.value);
-            setStudent({...student, [e.target.name]: e.target.value});
-            setOkAdd(false);
-        }
-    }
-
-    const handleChangeBiologyScore = (e) => {
-        if(e.target.value > 5 || e.target.value < 2){
-            alert('Значение не может быть больше 5 и меньше 2');
-            setBiologyScore('');
-        }else{
-            setBiologyScore(e.target.value);
-            setStudent({...student, [e.target.name]: e.target.value});
-            setOkAdd(false);
-        }
-    }
-
-    const handleChangeStoryScore = (e) => {
-        if(e.target.value > 5 || e.target.value < 2){
-            alert('Значение не может быть больше 5 и меньше 2');
-            setStoryScore('');
-        }else{
-            setStoryScore(e.target.value);
-            setStudent({...student, [e.target.name]: e.target.value});
-            setOkAdd(false);
-        }
+    const handleChangeScore = (e) => (field) => {
+        setStudent({...student, [field]: e.target.value});
+        setOkAdd(false);
     }
 
     const addStudent = () => {
         if (localStorage.getItem('students') != null) {
             students = JSON.parse(localStorage.getItem('students'));
-            student.key = (students.length + 1).toString();
+            student.key = (students.length + 2).toString();
             students.push(student);
             localStorage.setItem('students', JSON.stringify(students));
             fieldСlearing();
             setInvisibleAdd(true);
             setOkAdd(true);
         } else {
-            student.key = students.length + 1;
+            student.key = students.length + 2;
             students.push(student);
             localStorage.setItem('students', JSON.stringify(students));
             fieldСlearing();
@@ -146,11 +85,35 @@ function AddStudent() {
                     </Space>
                     <Card>
                         <p>Введите оценки за предметы</p>
-                        <Input placeholder="Физика" type='number' onChange={handleChangePhysicsScore} name='physics' value={physicsScore}/>
-                        <Input placeholder="Информатика" type='number' onChange={handleChangeInformaticsScore} name='informatics' value={informaticsScore}/>
-                        <Input placeholder="Химия" type='number' onChange={handleChangeChemistryScore} name='chemistry' value={chemistryScore}/>
-                        <Input placeholder="Биология" type='number' onChange={handleChangeBiologyScore} name='biology' value={biologyScore}/>
-                        <Input placeholder="История" type='number' onChange={handleChangeStoryScore} name='story' value={storyScore}/>
+                        <label>Физика</label>
+                        <Radio.Group onChange={(e) => handleChangeScore(e)('physics')} value={student.physics}>                            
+                            <Radio value={5}>5</Radio><Radio value={4}>4</Radio>
+                            <Radio value={3}>3</Radio><Radio value={2}>2</Radio>
+                        </Radio.Group>
+
+                        <label>Информатика</label>
+                        <Radio.Group onChange={(e) => handleChangeScore(e)('informatics')} value={student.informatics}>                            
+                            <Radio checked={true} value={5}>5</Radio><Radio value={4}>4</Radio>
+                            <Radio value={3}>3</Radio><Radio value={2}>2</Radio>
+                        </Radio.Group>
+
+                        <label>Химия</label>
+                        <Radio.Group onChange={(e) => handleChangeScore(e)('chemistry')} value={student.chemistry}>                            
+                            <Radio value={5}>5</Radio><Radio value={4}>4</Radio>
+                            <Radio value={3}>3</Radio><Radio value={2}>2</Radio>
+                        </Radio.Group>
+
+                        <label>Биология</label>
+                        <Radio.Group onChange={(e) => handleChangeScore(e)('biology')} value={student.biology}>                            
+                            <Radio value={5}>5</Radio><Radio value={4}>4</Radio>
+                            <Radio value={3}>3</Radio><Radio value={2}>2</Radio>
+                        </Radio.Group>
+
+                        <label>История</label>
+                        <Radio.Group onChange={(e) => handleChangeScore(e)('story')} value={student.story}>                            
+                            <Radio value={5}>5</Radio><Radio value={4}>4</Radio>
+                            <Radio value={3}>3</Radio><Radio value={2}>2</Radio>
+                        </Radio.Group>
                     </Card>
                     <Button type="primary" disabled={invisibleAdd} onClick={addStudent}> Добавить </Button>
                     {
