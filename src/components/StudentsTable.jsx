@@ -101,6 +101,7 @@ const StudentsTable = () => {
       filters: alphabetData,
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.localeCompare(b.name),
+      className: 'styleTable',
     },{
       title: 'Дата Рождения (гггг-мм-дд)',
       dataIndex: 'age',
@@ -111,6 +112,7 @@ const StudentsTable = () => {
         compare: (a, b) => new Date(a.age) - new Date(b.age),
         multiple: '',
       },
+      className: 'styleTable',
     },{
       title: 'Физика',
       dataIndex: 'physics',
@@ -119,6 +121,7 @@ const StudentsTable = () => {
       filters: scoreData,
       onFilter: (value, record) => record.physics.indexOf(value) === 0,
       sorter: (a, b) => a.physics - b.physics,
+      className: 'styleTable',
     },{
       title: 'Информатика',
       dataIndex: 'informatics',
@@ -127,6 +130,7 @@ const StudentsTable = () => {
       filters: scoreData,
       onFilter: (value, record) => record.informatics.indexOf(value) === 0,
       sorter: (a, b) => a.informatics - b.informatics,
+      className: 'styleTable',
     },{
       title: 'Химия',
       dataIndex: 'chemistry',
@@ -135,6 +139,7 @@ const StudentsTable = () => {
       filters: scoreData,
       onFilter: (value, record) => record.chemistry.indexOf(value) === 0,
       sorter: (a, b) => a.chemistry - b.chemistry,
+      className: 'styleTable',
     },{
       title: 'Биология',
       dataIndex: 'biology',
@@ -143,6 +148,7 @@ const StudentsTable = () => {
       filters: scoreData,
       onFilter: (value, record) => record.biology.indexOf(value) === 0,
       sorter: (a, b) => a.biology - b.biology,
+      className: 'styleTable',
     },{
       title: 'История',
       dataIndex: 'story',
@@ -151,9 +157,11 @@ const StudentsTable = () => {
       filters: scoreData,
       onFilter: (value, record) => record.story.indexOf(value) === 0,
       sorter: (a, b) => a.story - b.story,
+      className: 'styleTable',
     },{
       title: '',
       dataIndex: 'operation',
+      className: 'styleTable',
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
@@ -195,8 +203,7 @@ const StudentsTable = () => {
       }),
     };
   });
-  return (
-    
+  return (    
     <div className='containerTable'>
       <Form form={form} component={false}>
         <Table
@@ -215,7 +222,6 @@ const StudentsTable = () => {
         />
       </Form>
     </div>
-
   );
 };
 

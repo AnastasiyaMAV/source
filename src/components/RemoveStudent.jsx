@@ -6,7 +6,6 @@ const alphabetData = require('./assets/JSON/alphabetData.json');
 const scoreData = require('./assets/JSON/scoreData.json');
 
 class RemoveStudent extends React.Component {
-  
   constructor(props) {
     super(props);
     this.columns = [
@@ -17,14 +16,16 @@ class RemoveStudent extends React.Component {
         filters: alphabetData,
         onFilter: (value, record) => record.name.indexOf(value) === 0,
         sorter: (a, b) => a.name.localeCompare(b.name),
+        className: 'styleTable',
       },{
-        title: 'Дата Рождения',
+        title: 'Дата Рождения (гггг-мм-дд)',
         dataIndex: 'age',
         width: '10%',
         sorter: {
           compare: (a, b) => new Date(a.age) - new Date(b.age),
           multiple: '',
         },
+        className: 'styleTable',
       },{
         title: 'Физика',
         dataIndex: 'physics',
@@ -32,6 +33,7 @@ class RemoveStudent extends React.Component {
         filters: scoreData,
         onFilter: (value, record) => record.physics.indexOf(value) === 0,
         sorter: (a, b) => a.physics - b.physics,
+        className: 'styleTable',
       },{
         title: 'Информатика',
         dataIndex: 'informatics',
@@ -39,6 +41,7 @@ class RemoveStudent extends React.Component {
         filters: scoreData,
         onFilter: (value, record) => record.informatics.indexOf(value) === 0,
         sorter: (a, b) => a.informatics - b.informatics,
+        className: 'styleTable',
       },{
         title: 'Химия',
         dataIndex: 'chemistry',
@@ -46,6 +49,7 @@ class RemoveStudent extends React.Component {
         filters: scoreData,
         onFilter: (value, record) => record.chemistry.indexOf(value) === 0,
         sorter: (a, b) => a.chemistry - b.chemistry,
+        className: 'styleTable',
       },{
         title: 'Биология',
         dataIndex: 'biology',
@@ -53,6 +57,7 @@ class RemoveStudent extends React.Component {
         filters: scoreData,
         onFilter: (value, record) => record.biology.indexOf(value) === 0,
         sorter: (a, b) => a.biology - b.biology,
+        className: 'styleTable',
       },{
         title: 'История',
         dataIndex: 'story',
@@ -60,9 +65,11 @@ class RemoveStudent extends React.Component {
         filters: scoreData,
         onFilter: (value, record) => record.story.indexOf(value) === 0,
         sorter: (a, b) => a.story - b.story,
+        className: 'styleTable',
       },{
         title: '',
         dataIndex: 'operation',
+        className: 'styleTable',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="Вы уверены в удалении?" onConfirm={() => this.handleDelete(record.key)}>
@@ -111,8 +118,7 @@ class RemoveStudent extends React.Component {
       };
     });
     return (
-      <div className='containerTable'>
-
+      <div className='containerRemove'>
         <Table
           rowClassName={() => 'editable-row'}
           bordered

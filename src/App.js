@@ -1,4 +1,3 @@
-// import "./App.css";
 import './components/styles/main.scss'
 import "antd/dist/antd.css";
 import GenericConstructor from "./components/GenericConstructor";

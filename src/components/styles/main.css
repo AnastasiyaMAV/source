@@ -16,7 +16,12 @@
   color: #141414;
 }
 
+.logoImg {
+  width: 30px;
+}
+
 .containerTable {
+  margin: 25px 50px 0 50px;
   min-height: calc(100vh - 70px);
 }
 
@@ -33,7 +38,8 @@
 }
 
 .containerRemove {
-  margin-top: 25px;
+  margin: 25px 50px 0 50px;
+  min-height: calc(100vh - 70px);
 }
 
 .footer {
@@ -42,6 +48,10 @@
   background-color: #dddddd;
   color: #141414;
   font-size: 25px;
+}
+
+.signatureFooter {
+  margin-right: 25px;
 }
 
 .containerEmpty {

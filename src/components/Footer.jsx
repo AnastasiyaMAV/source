@@ -1,9 +1,8 @@
 
 function Footer() {
-
     return (
         <div className="footer">
-            <span>&#169;Anastasiya Vostrikova</span>
+            <span className="signatureFooter">&#169;Anastasiya Vostrikova</span>
         </div>
     );
 }
