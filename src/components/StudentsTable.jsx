@@ -175,7 +175,7 @@ const StudentsTable = () => {
               OK
             </Typography.Link>
             <Popconfirm title="Вы уверены, что хотите отменить?" onConfirm={cancel}>
-              <a>Отмена</a>
+              <Typography.Link>Отмена</Typography.Link>
             </Popconfirm>
           </span>
         ) : (

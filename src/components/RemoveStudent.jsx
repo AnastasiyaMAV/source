@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Popconfirm } from 'antd';
+import { Table, Popconfirm, Typography } from 'antd';
 
 const originData = require('./assets/JSON/originData.json');
 const alphabetData = require('./assets/JSON/alphabetData.json');
@@ -73,7 +73,7 @@ class RemoveStudent extends React.Component {
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="Вы уверены в удалении?" onConfirm={() => this.handleDelete(record.key)}>
-              <a>Удалить</a>
+              <Typography.Link>Удалить</Typography.Link>
             </Popconfirm>
           ) : null,
       },
