@@ -23,7 +23,7 @@
 
 ---
 
-![gif](https://github.com/AnastasiyaMAV/source/tree/main/public/assets/images/show-app.gif)
+![gif](https://github.com/AnastasiyaMAV/source/blob/main/public/assets/images/show-app.gif)
 
 #### Используемые технологии:
 
