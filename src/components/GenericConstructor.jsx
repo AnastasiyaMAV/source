@@ -16,6 +16,8 @@ function GenericConstructor() {
 
                   <Route index element={<StudentsTable />} />
 
+                  <Route path="source" element={<StudentsTable />}/>
+
                   <Route path="studentAdd" element={<AddStudent />}/>
 
                   <Route path="studentDel" element={<RemoveStudent />}/>
