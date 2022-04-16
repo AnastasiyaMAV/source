@@ -9,3 +9,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.inputName {
+    height: 90px;
+}
+
+.error{
+    color: $colorErr;
+}

@@ -16,6 +16,10 @@ function AddStudent() {
     const [nameSt, setNameSt] = useState('');
     const [birthdaySt, setbirthdaySt] = useState('');
     const [okAdd, setOkAdd] = useState(false);
+    const textWithPunc = /^[а-яё -.,_!?:;]+$/gi;
+    const numberDate = /^[0-9.]+$/gi;
+    const [errorValidationName, setErrorValidationName] = useState(false);
+    const [errorValidationDate, setErrorValidationDate] = useState(false);
     
     const fieldСlearing = () => {
         setNameSt('');
@@ -35,16 +39,27 @@ function AddStudent() {
     }, [student, nameSt, birthdaySt]);
 
     const handleChangeNameSt = (e) => {
-        setNameSt(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value.match(textWithPunc)) {
+            setNameSt(e.target.value);
+            setStudent({...student, [e.target.name]: e.target.value});
+            setOkAdd(false);
+            setErrorValidationName(false);
+        } else {
+            setErrorValidationName(true);
+        }
     }
 
     const handleChangeBirthdaySt = (e) => {
-        setbirthdaySt(e.target.value);
-        setStudent({...student, [e.target.name]: e.target.value});
-        setOkAdd(false);
+        if(e.target.value.match(numberDate)) {
+            setbirthdaySt(e.target.value);
+            setStudent({...student, [e.target.name]:  e.target.value});
+            setOkAdd(false);
+            setErrorValidationDate(false);
+        } else {
+            setErrorValidationDate(true);
+        }
     }
+
 
     const handleChangeScore = (e) => (field) => {
         setStudent({...student, [field]: e.target.value});
@@ -75,13 +90,19 @@ function AddStudent() {
             <div className="containerStudent">
             <Card style={{ width: 300 }}>
                 <div className='containerCard'>
-                    <div>
+                    <div className='inputName'>
                         <h3>Добавление нового студента</h3>
                         <Input placeholder="Введите ФИО" onChange={handleChangeNameSt} name='name' value={nameSt}/>
+                        {
+                            errorValidationName ? <p className='error'>Только кириллица</p> : ""
+                        }
                     </div>
-                    <Space direction="vertical">
+                    <Space direction="vertical" className='inputName'>
                         <div>Введите дату рождения</div>
                         <Input placeholder="Формат ГГГГ.ММ.ДД" onChange={handleChangeBirthdaySt} name='age' value={birthdaySt}/>
+                        {
+                            errorValidationDate ? <p className='error'>Формат даты ГГГГ.ММ.ДД</p> : ""
+                        }
                     </Space>
                     <Card>
                         <p>Введите оценки за предметы</p>
