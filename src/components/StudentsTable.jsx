@@ -42,9 +42,7 @@ const EditableCell = ({
 
 const StudentsTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(JSON.parse(localStorage.getItem('students')) 
-    ? JSON.parse(localStorage.getItem('students')) 
-    : localStorage.setItem('students', JSON.stringify(originData)));
+  const [data, setData] = useState('');    
   const [editingKey, setEditingKey] = useState('');
 
   const isEditing = (record) => record.key === editingKey;
@@ -68,8 +66,10 @@ const StudentsTable = () => {
   };
 
   useEffect(()=>{
-    localStorage.setItem('students', JSON.stringify(data))
-  },[data])
+    JSON.parse(localStorage.getItem('students')) 
+    ? setData(JSON.parse(localStorage.getItem('students')))
+    : setData(localStorage.setItem('students', JSON.stringify(originData)));
+  },[])
 
   const save = async (key) => {
     try {
