@@ -25,6 +25,11 @@
 
 ![gif](https://github.com/AnastasiyaMAV/source/blob/main/src/components/assets/images/show-app.gif)
 
+
+#### Посмотреть приложение:
+
+[Ссылка на сайт](https://anastasiyamav.github.io/source/)
+
 #### Используемые технологии:
 
 - React
