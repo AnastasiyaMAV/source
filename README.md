@@ -32,8 +32,8 @@
 
 #### Используемые технологии:
 
-- React
-- React Hooks
+- [React](https://ru.reactjs.org/)
+- [React Hooks](https://ru.reactjs.org/docs/hooks-intro.html)
 - [React Router](https://v5.reactrouter.com/web/guides/quick-start)
 - [SASS](https://sass-lang.com/)
 - [Ant.desing](https://ant.design/)
